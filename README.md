@@ -1,6 +1,8 @@
 This project uses Flask, Requests and the [metricsgraphics.js](http://metricsgraphicsjs.org/)
 library for time-series data, to collect and plot data from **The Things Network**.
 
+![](screenshot.png)
+
 # Starting
 
 Install a virtualenv, activate, and `pip install -r requirements.txt`
