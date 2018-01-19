@@ -35,7 +35,7 @@ app = create_app(here, default_static_path(), default_template_path())
 app.brand = "MakeZurich"
 
 # build the layout
-get_layouts(app, here+"/test_data.csv")
+get_layouts(app, here+"/../data/test.csv")
 
 if __name__ == "__main__":
     # get_api_data()

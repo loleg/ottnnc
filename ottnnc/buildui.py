@@ -41,18 +41,19 @@ def create_scatterplot(df):
             df (pandas.DataFrame): data to plot
     """
     fig = Figure("/mg/scatter/", "mg_scatter")
-    fig.layout.set_size(width=450, height=200)
+    fig.layout.set_size(width=900, height=1000)
     fig.layout.set_margin(left=40, right=40)
     fig.graphics.animate_on_load()
 
     init_params = {"Data": "device_id"}
 
     def get_data():
-        y = request.args.get("Data", "device_id")
-        return jsonify(ScatterPlot.to_json(df, "value", y))
+        x = request.args.get("Data", "time")
+        y = request.args.get("Data", "value")
+        return jsonify(ScatterPlot.to_json(df, x, y))
 
     # Make a histogram with 20 bins
-    return ScatterPlot(df, fig, "device_id", "value",
+    return ScatterPlot(df, fig, "time", "value",
         init_params={}, route_func=get_data)
 
 def make_mg_layout(filename):
